@@ -21,10 +21,10 @@ const options = {
   minuteIncrement: 1,  // step for 1 second
     onClose(selectedDates) {
         selectedDate = selectedDates[0];
-        let timeLeft = selectedDates[0] - new Date();
+       
             
-        if (timeLeft <= 0) {
-            Notiflix.Notify.failure("Please choose a date in the future");
+        if (selectedDates[0] - new Date() <= 0) {
+          return Notiflix.Notify.failure("Please choose a date in the future");
         } refs.startBtn.disabled = false;
   },
 };
